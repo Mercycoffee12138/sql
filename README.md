@@ -21,7 +21,7 @@ where not exists(
 2024年中选修了所有计算机学院的课的学生学号和学生姓名：
 
 ```sql
-select stu_id,stu_name
+select student.stu_id,stu_name
 from  student
 where  not exists(
   select 1
