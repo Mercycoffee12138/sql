@@ -1,6 +1,8 @@
 ### 这里是南开大学2025spring的sql考试总结：
 #### 对于之前的连用两个not exists连用的一些思考：例题：选择全部A表a属性的B表的信息。
 套用公式如下：
+
+```sql
 select B.b1,B.b2....
 from B
 where not exists(
@@ -13,8 +15,12 @@ where not exists(
     and C.ac=A.ac
   )
 );
+```
+
 让我们来举一个具体的例子：
 2024年中选修了所有计算机学院的课的学生学号和学生姓名：
+
+```sql
 select stu_id,stu_name
 from  student
 where  not exists(
@@ -28,7 +34,11 @@ where  not exists(
     where  takes.stu_id=student.stu_id
     and  takes.cor_id=course.cor_id
   )
-); 遇到这种题目直接套公式就行。
+);
+```
+
+ 遇到这种题目直接套公式就行。
+
 #### 这里是sql考试的一些小提醒：我在练习的时候一直没有搞懂所以总是会出现语法错误，这里提醒一些细节：
 ##### (1)首先是where语句中不可以用聚合函数(救命虽然很弱智然是我刚开始确实经常犯错误)。
 ##### (2)然后就是GROUP BY用了之后要检查你的select里面有没有GROUP BY不能处理的变量，不然也会报错。
